@@ -4,7 +4,7 @@ import Cookie from "universal-cookie";
 
 const cookie = new Cookie();
 
-export default function Auth() {
+export default function LoginForm() {
   const router = useRouter()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -98,7 +98,7 @@ export default function Auth() {
                   />
                 </svg>
               </span>
-              Sign in
+              ログイン
             </button>
           </div>
         </form>

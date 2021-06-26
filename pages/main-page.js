@@ -34,6 +34,7 @@ const main_page = () => {
       <button className="bg-blue-200" onClick={logout}>
         ログアウト
       </button>
+      
     </div>
   );
 };
