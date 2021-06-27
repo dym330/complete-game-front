@@ -31,7 +31,7 @@ export default function LoginForm() {
           cookie.set("access_token", data.token, { path: "/" });
           console.log(data.token);
         });
-      router.push('/main-page');
+      router.push('/items');
     } catch (e) {
       alert(e);
     }
