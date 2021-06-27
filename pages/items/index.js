@@ -2,11 +2,13 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Cookie from "universal-cookie";
 
+
 // api
 import { itemsGet } from "../../lib/items";
 
 //components
 import Alphabet from "../../components/items/alphabet";
+import Links from "../../components/share/Links";
 
 const cookie = new Cookie();
 
@@ -14,11 +16,17 @@ const index = () => {
   const router = useRouter();
   const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   const [items, setItems] = useState([]);
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
     itemsGet()
       .then((data) => {
+        let sum = 0;
         setItems(data);
+        data.forEach((num) => {
+          sum += num.number;
+        });
+        setNumber(sum);
       })
       .catch((e) => {
         alert(e);
@@ -76,9 +84,9 @@ const index = () => {
       </div>
       <div className="text-center">
         <h2>ガチャの回数</h2>
-        <p>4回</p>
+        <p>{number}回</p>
       </div>
-      
+      <Links />
     </div>
   );
 };
